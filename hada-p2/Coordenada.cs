@@ -10,34 +10,16 @@ namespace Hada
     {
         public int Fila
         {
-            get
-            {
-                return Fila;
-            }
+            get => Fila;
 
-            private set
-            {
-                if (value >= 0 && value <= 9)
-                {
-                    Fila = value;
-                }
-            }
+            private set => Fila = (value >= 0 && value <= 9) ? value : Fila;
         }
 
         public int Columna
         {
-            get
-            {
-                return Columna;
-            }
+            get => Columna;
 
-            private set
-            {
-                if (value >= 0 && value <= 9)
-                {
-                    Columna = value;
-                }
-            }
+            private set => Columna = (value >= 0 && value <= 9) ? value : Columna;
         }
 
         public Coordenada()
@@ -71,23 +53,8 @@ namespace Hada
 
         public override int GetHashCode() => this.Fila.GetHashCode() ^ this.Columna.GetHashCode();
 
-        public override bool Equals(object obj)
-        {
-            if (!(obj is Coordenada))
-            {
-                return false;
-            }
-            else
-            {
-                Coordenada c = obj as Coordenada;
+        public override bool Equals(object obj) => obj is Coordenada c && c.Fila == this.Fila && c.Columna == this.Columna;
 
-                return this.Fila == c.Fila && this.Columna == c.Columna;
-            }
-        }
-
-        public bool Equals(Coordenada c)
-        {
-            return this.Fila == c.Fila && this.Columna == c.Columna;
-        }
+        public bool Equals(Coordenada c) => c != null && c.Fila == this.Fila && c.Columna == this.Columna;
     }
 }

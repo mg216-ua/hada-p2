@@ -14,7 +14,7 @@ namespace Hada
             get; private set;
         }
 
-        public string Nombre
+        public string Nombre 
         {
             get; private set;
         }

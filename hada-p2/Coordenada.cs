@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
 
 namespace Hada
 {
     public class Coordenada
     {
+        private int fila;
+        private int columna;
+
         public int Fila
         {
             get
-            { return (int)this.Fila; }
-            set
-            { if (value >= 0 && value <= 9) { this.Fila = value; } }
+            { return this.fila; }
+            private set
+            { if (value >= 0 && value <= 9) { this.fila = value; } }
         }
         public int Columna
         {
             get
-            { return (int)this.Fila; }
-            set
-            { if (value >= 0 && value <= 9) { this.Fila = value; } }
+            { return this.columna; }
+            private set
+            { if (value >= 0 && value <= 9) { this.columna = value; } }
         }
 
         public Coordenada()

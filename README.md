@@ -1,14 +1,14 @@
 # hada-p2
 La practica 2 de HADA
 
-##Clase Coordenada
+## Clase Coordenada
 
-##Clase Barco
+## Clase Barco
 
-##Clases de Evento
+## Clases de Evento
 
-##Clase Tablero
+## Clase Tablero
 
-##Clase Game
+## Clase Game
 
-##Fichero Program.cs
+## Fichero Program.cs

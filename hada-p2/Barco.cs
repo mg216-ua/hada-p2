@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hada
+namespace Hada // HADA CON HACHE MAYUSCULA COMO H EN "HACHE MAYUSCULA"
 {
     internal class Barco
     {

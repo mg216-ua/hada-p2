@@ -53,7 +53,7 @@ namespace Hada
 
         public void Disparo(Coordenada cord)
         {
-            if (this.CoordenadasBarco.ContainsKey(cord) /*&& this.CoordenadasBarco[cord].EndsWith("_T")+*/)
+            if (this.CoordenadasBarco.ContainsKey(cord) && !this.CoordenadasBarco[cord].EndsWith("_T"))
             {
                 this.CoordenadasBarco[cord] += "_T";
                 eventoTocado.Invoke(this, new TocadoArgs(this.Nombre, cord));

@@ -12,22 +12,26 @@ namespace Hada // HADA CON HACHE MAYUSCULA COMO H EN "HACHE MAYUSCULA"
         public Dictionary<Coordenada, String> CoordenadasBarco {  get; private set; }
         public string Nombre { get; private set; }
         public int NumDanyos { get; private set; }
+        public static int tablero { get; set; }
 
         public event EventHandler<TocadoArgs> eventoTocado;
         public event EventHandler<HundidoArgs> eventoHundido;
 
-        public Barco(string _Nombre, int longitud, char orienacion, Coordenada coordenadaInicio)
+        public Barco(string _Nombre, int longitud, char orientacion, Coordenada coordenadaInicio)
         {
-            if (orienacion=='h')
+
+            this.CoordenadasBarco = new Dictionary<Coordenada, String>();
+
+            if (orientacion=='v')
             {
-                if ((coordenadaInicio.Fila + longitud) > 9) { throw new ArgumentException("Imposible position and length combination"); }
+                if ((coordenadaInicio.Fila + longitud) > tablero) { throw new ArgumentException("Imposible position and length combination"); }
                 else{ for (int i = 0; i < longitud; i++)
                     {
                         this.CoordenadasBarco.Add(new Coordenada((coordenadaInicio.Fila+i), coordenadaInicio.Columna), _Nombre);
                     } }
-            } else if (orienacion=='v')
+            } else if (orientacion=='h')
             {
-                if ((coordenadaInicio.Columna + longitud) > 9) { throw new ArgumentException("Imposible position and length combination"); }
+                if ((coordenadaInicio.Columna + longitud) > tablero) { throw new ArgumentException("Imposible position and length combination"); }
                 else { for (int i = 0;i<longitud;i++)
                      {
                         this.CoordenadasBarco.Add(new Coordenada(coordenadaInicio.Fila, (coordenadaInicio.Columna + i)), _Nombre);

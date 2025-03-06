@@ -8,18 +8,38 @@ namespace Hada
 {
     internal class Coordenada
     {
+        private int _fila;
+        private int _columna;
         public int Fila
         {
-            get => Fila;
+            get
+            {
+                return _fila;
+            }
 
-            private set => Fila = (value >= 0 && value <= 9) ? value : Fila;
+            private set
+            {
+                if (value >= 0 && value <= 9)
+                {
+                    _fila = value;
+                }
+            }
         }
 
         public int Columna
         {
-            get => Columna;
+            get
+            {
+                return _columna;
+            }
 
-            private set => Columna = (value >= 0 && value <= 9) ? value : Columna;
+            private set
+            {
+                if (value >= 0 && value <= 9)
+                {
+                    _fila = value;
+                }
+            }
         }
 
         public Coordenada()
@@ -36,8 +56,8 @@ namespace Hada
 
         public Coordenada(string f, string c)
         {
-            this.Fila = int.Parse(f);
-            this.Columna = int.Parse(c);
+            this.Fila = Convert.ToInt32(f);
+            this.Columna = Convert.ToInt32(c);
         }
 
         public Coordenada(Coordenada other)
@@ -51,10 +71,44 @@ namespace Hada
             return "(" + this.Fila + "," + this.Columna + ")";
         }
 
-        public override int GetHashCode() => this.Fila.GetHashCode() ^ this.Columna.GetHashCode();
+        public override int GetHashCode()
+        {
+            return this.Fila.GetHashCode() ^ this.Columna.GetHashCode();
+        }
 
-        public override bool Equals(object obj) => obj is Coordenada c && c.Fila == this.Fila && c.Columna == this.Columna;
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
 
-        public bool Equals(Coordenada c) => c != null && c.Fila == this.Fila && c.Columna == this.Columna;
+            if (this == obj)
+            {
+                return true;
+            }
+            else
+            {
+                Coordenada aux = (Coordenada)obj;
+                return this.Fila == aux.Fila && this.Columna == aux.Columna;
+            }
+        }
+
+        public bool Equals(Coordenada c)
+        {
+            if (c == null)
+            {
+                return false;
+            }
+
+            if (this == c)
+            {
+                return true;
+            }
+            else
+            {
+                return this.Fila == c.Fila && this.Columna == c.Columna;
+            }
+        }
     }
 }

@@ -9,15 +9,18 @@ namespace Hada
 {
     internal class Barco
     {
+        //Eventos definidos para futuro ejecutacion
         public event EventHandler<TocadoArgs> eventoTocado;
         public event EventHandler<HundidoArgs> eventoHundido;
+
+        //Obtenemos los valores de dicionario de Coordenadas de Barcos
         public Dictionary<Coordenada, String> CoordenadasBarco
         {
             get;
         }
 
+        //Valor private de string de definicion de variable de clase
         private string _nombre;
-
         public string Nombre 
         {
             get
@@ -31,6 +34,7 @@ namespace Hada
             }
         }
 
+        //Variable de numero daños
         public int NumDanyos
         {
             get;
@@ -38,12 +42,15 @@ namespace Hada
             private set;
         }
 
+        //Constructor de Barco segun su nombre, longitud, orientacion y coordenada iniciado
         public Barco(string nombre, int longitud, char orientacion, Coordenada coordenadaInicio)
         {
+            //Definimos los valores necesarios
             this.Nombre = nombre;
             this.NumDanyos = 0;
             CoordenadasBarco = new Dictionary<Coordenada, String>();
 
+            //ponemos los restos de caracteristicas y creamos barco
             for (int i = 0; i < longitud; i++)
             {
                 int row = coordenadaInicio.Fila + (orientacion == 'v' ? i : 0);
@@ -53,13 +60,17 @@ namespace Hada
             }
         }
 
+        //Funcion Disparo
         public void Disparo(Coordenada c)
         {
+            //Si en las coordenadas donde hay barcos existe una clave con la coordenada
+            //que buscamos y no este ya tocada
             if (CoordenadasBarco.ContainsKey(c) &&
                 !CoordenadasBarco[c].EndsWith("_T"))
             {
+                //Marcamos como tocado
                 CoordenadasBarco[c] += "_T";
-
+                //Incrementamos el numero de daños
                 NumDanyos++;
                 eventoTocado?.Invoke(this, new TocadoArgs(this.Nombre, c));
 
@@ -70,6 +81,7 @@ namespace Hada
             }
         }
 
+        //Booleano si el barco es hundido o no
         public bool hundido()
         {
             foreach (var etiqueta in CoordenadasBarco.Values)
@@ -82,13 +94,15 @@ namespace Hada
             return true;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string texto = "";
 
+            //Concatenamos los datos
             texto = texto + "[" + this.Nombre + "] - DAÑOS: [" + this.NumDanyos + "] - HUNDIDO: [" + this.hundido() + "] - ";
             texto = texto + "COORDENADAS: ";
 
+            //Concatenamos las coordenadas
             foreach (var elemento in CoordenadasBarco)
             {
                 texto = texto + "[(" + elemento.Key.Fila + "," + elemento.Key.Columna + ") :" + elemento.Value + "] ";

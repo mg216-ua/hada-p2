@@ -8,9 +8,11 @@ namespace Hada
 {
     internal class TocadoArgs
     {
+        //Definimos los variables en la manera de privato
         private string _nombre;
         private Coordenada _coordenadaImpacto;
 
+        //Definimos los variables
         public string Nombre
         {
             get { return _nombre; }
@@ -23,6 +25,7 @@ namespace Hada
             set { _coordenadaImpacto = value; }
         }
 
+        //Constructor de evento Tocado
         public TocadoArgs(string nombre, Coordenada coordenada)
         {
             this.Nombre = nombre;
@@ -32,14 +35,17 @@ namespace Hada
 
     internal class HundidoArgs
     {
+        //Variable de nombre en manera privado
         private string _nombre;
 
+        //Definimos el nombre de barco como variable
         public string Nombre
         {
             get { return _nombre; }
             set { _nombre = value; }
         }
 
+        //Constructor de evento Hundido
         public HundidoArgs(string nombre)
         {
             this.Nombre = nombre;

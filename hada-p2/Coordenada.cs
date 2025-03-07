@@ -37,7 +37,7 @@ namespace Hada
             {
                 if (value >= 0 && value <= 9)
                 {
-                    _fila = value;
+                    _columna = value;
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace Hada
             }
             else
             {
-                Coordenada aux = (Coordenada)obj;
+                Coordenada aux = (Coordenada) obj;
                 return this.Fila == aux.Fila && this.Columna == aux.Columna;
             }
         }

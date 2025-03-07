@@ -79,12 +79,14 @@ namespace Hada
             if (c.Fila >= 0 && c.Columna < TamTablero
                         && c.Columna >= 0 && c.Columna < TamTablero)
             {
+
+                CoordenadasDisparadas.Add(c);
+
                 foreach (var barco in Barcos)
                 {
                     if (barco.CoordenadasBarco.ContainsKey(c))
                     {
                         barco.Disparo(c);
-                        CoordenadasDisparadas.Add(c);
                     }
                 }
             }

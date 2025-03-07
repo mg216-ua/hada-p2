@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hada
 {
-    public class TocadoArgs : EventArgs
+    public class TocadoArgs : EventArgs // Clase tocado Args
     {
         public string nombre { get; }
         public Coordenada cord { get; }
@@ -18,7 +18,7 @@ namespace Hada
         }
     }
 
-    public class HundidoArgs : EventArgs 
+    public class HundidoArgs : EventArgs // Clase Hundido Args
     {
         public string nombre{ get; }
 

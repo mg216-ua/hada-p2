@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hada
 {
+    // Git https://github.com/mg216-ua/hada-p2
     // Program.cs No hace nada excepto crear una instancia de Game.
     internal class Program
     {

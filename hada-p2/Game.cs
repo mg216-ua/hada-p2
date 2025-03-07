@@ -64,7 +64,7 @@ namespace Hada
                 {
                     break;
                 }
-                // El hehco de que no aparecen los textos de algunos avisos se debe a que se limpian muy rapido con el console clear.
+                // El hehco de que no aparezcan los textos de algunos avisos se debe a que se limpian muy rapido con el console clear.
                 //      Se puede simplemente quitar el console.Clear() y entonces saldrán todos los mensajes intermedios. Un chiquito problema que no me da la vida solucionar
                 Console.Clear();
             }
